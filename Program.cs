@@ -1,0 +1,29 @@
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите значение переменной:");
+        string input = Console.ReadLine();
+        double x1;
+        if (double.TryParse(input, out x1))
+        {
+            Console.WriteLine("Вы ввели: " + x1);
+        }
+        else
+        {
+            Console.WriteLine("Некорректный ввод!");
+        }
+
+        double result = CalculateEquation(x1);
+
+        Console.WriteLine("Значение уравнения при x = " + x1 + " равно " + result);
+    }
+    static double CalculateEquation(double x1)
+    {
+        double result = Math.Log(Math.Cos(x1)) / Math.Log(1 + x1 * x1);
+
+        return result;
+    }
+}
